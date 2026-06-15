@@ -1,4 +1,3 @@
-cat <<EOF > proxy.go
 package main
 
 import (
@@ -20,7 +19,6 @@ func handleDNS(w dns.ResponseWriter, r *dns.Msg) {
 func main() {
     dns.HandleFunc(".", handleDNS)
     server := &dns.Server{Addr: ":53", Net: "udp"}
-    fmt.Println("[ENI] Proxy active for LO...")
+    fmt.Println("Proxy active...")
     server.ListenAndServe()
 }
-EOF
